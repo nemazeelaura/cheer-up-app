@@ -1,0 +1,29 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin: 20 auto;
+	background: url('/images/cheerup_logo.png') no-repeat center center fixed;
+	background-position: right 1px; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1 {
+	font-size: 18px;
+	color: rgba(255, 255, 255, .90);
+}
+h2 {
+	font-size: 18px;
+	color: rgba(255, 255, 255, .90);
+	font-style: italic; 
+}
+/*.jumbotron-fluid {
+	background: url('/images/cheerup_logo.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}*/
+.btn-primary {
+	background-color: rgba(244, 138, 136, 1);
