@@ -2,7 +2,7 @@ const passport = require('passport');
 
 
 // GET / //render message in views when go to '/signup' up page
-function getSignup(request, response) {
+function getSignup(request, response, next) {
 	response.render('signup.ejs', { message: request.flash('signupMessage') });
 }
 
@@ -14,8 +14,9 @@ let signupStrategy = passport.authenticate('local-signup', {
 	  failureRedirect : '/signup', //if failure direct to /signup
 	  failureFlash : true
 	});
-
+  console.log(response);
 	return signupStrategy(request, response, next);
+
 }
 // GET /login
 function getLogin(request, response, next) { 
@@ -24,7 +25,7 @@ function getLogin(request, response, next) {
 
 // POST /login 
 function postLogin(request, response, next) {
-    var loginProperty = passport.authenticate('local-login', {
+    let loginProperty = passport.authenticate('local-login', {
       successRedirect : '/',
       failureRedirect : '/login',
       failureFlash : true
@@ -34,21 +35,23 @@ function postLogin(request, response, next) {
 }
 
 // GET /logout
-function getLogout(request, response) {  
+function getLogout(request, response, next) {  
 	request.logout();
   response.redirect('/');
 }
+// // Restricted page
+// function secret(request, response, next){
+//   response.render('secret.ejs');
+// }
 
 // Restricted page
-function secret(request, response){
-  response.render('secret.ejs');
+function userProfile(request, response, next){
+  response.json({secret: "Woooah secret!"});
 }
-
 // GET homepage/
-function home(req, res) {  
-  res.render('index.ejs');
+function home(request, response, next) {  
+  response.render('index.ejs');
 }
-
 
 module.exports = {
   getLogin: getLogin,
@@ -56,6 +59,6 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret,
+  userProfile: userProfile,
   home: home
 }

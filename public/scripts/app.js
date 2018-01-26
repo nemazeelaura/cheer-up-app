@@ -1,13 +1,44 @@
 
-console.log('front end working');
 
 
-   $.get('/api').done(function(res){
-         console.log(res);
-         console.log('now for something completely different');
-   });
+$(document).ready(function() {
+	console.log('front end working');
 
-<<<<<<< HEAD
+
+  $.get('/api',function(quotey){
+      console.log(quotey);
+      console.log('now for something completely different');
+  });
+  
+ });  
+
+function renderQuote(quote) {
+  console.log('rendering quote:', quote);
+
+
+
+$( "#getRandom" ).on('click', function(event) {
+	event.preventDefault();
+      $.get('/api/quotes', function(event){
+        console.log(event);
+  
+        
+    var randomQuote  =
+
+    document.write("<h1>" + event.contents.quote + "</h1>");
+    document.write("<h2>" + event.contents.author + "</h2>");
+    
+        $('#getRandom').append(randomQuote);
+
+      });
+
+ 
+    });
+ 
+}
+
+
+
 
 
 
@@ -27,6 +58,6 @@ console.log('front end working');
 //        //     document.write("<img" + data.contents.qimage + "/>");
 //        // });//End loop        
 //         </script> -->
-=======
+
  //  };
->>>>>>> parent of 21787b6... added logo to index.html
+

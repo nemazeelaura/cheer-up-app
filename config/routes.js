@@ -8,6 +8,7 @@ let db = require('../models');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const usersController = require('../controllers/users');
+let quoteController = require('../controllers/quotes');
 
 
 
@@ -19,27 +20,21 @@ function authenticatedUser(req, res, next) {
   res.redirect('/');
 }
 
-// i found this on stack overflow.. path.resolve was getting an error about my path
-let path = require('path');
-
-router.get('/', function(req, res){
-  res.sendFile(path.resolve('views/index.ejs'));
-});
-
 router.get('/api', function(req, res){
       db.Quote.find({}, function(err, quote){
+        console.log(quote);
             res.json(quote);
       }
-    );
+    ); 
 });
 
-<<<<<<< HEAD
+router.route('/api/quotes')
+  .get(quoteController.getQuotes)
+
 router.route('/')
   .get(usersController.home)
 
 
-=======
->>>>>>> parent of 21787b6... added logo to index.html
 router.route('/signup')
   .get(usersController.getSignup)
   .post(usersController.postSignup)
@@ -51,10 +46,24 @@ router.route('/login')
 router.route('/logout')
   .get(usersController.getLogout)
 
-router.route('/secret')
-  .get(authenticatedUser, usersController.secret)
+router.route('/user')
+  .get(authenticatedUser, usersController.userProfile)
 
 
 
 module.exports = router;
 
+
+
+
+
+
+// i found this on stack overflow.. path.resolve was getting an error about my path
+// let path = require('path');
+// router.get('/', function(req, res){
+//   res.sendFile(path.resolve('views/index.ejs'));
+// });
+// var path = require('path');
+// router.get('/', function(req, res){
+//   res.sendFile('../views/index.ejs');
+// });
