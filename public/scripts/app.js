@@ -8,34 +8,58 @@ $(document).ready(function() {
   $.get('/api',function(quotey){
       console.log(quotey);
       console.log('now for something completely different');
-  });
+
+      function renderQuote(quote) {
+       console.log('rendering quote:', quote);
+
+   }
   
  });  
 
-function renderQuote(quote) {
-  console.log('rendering quote:', quote);
-
-
+});
 
 $( "#getRandom" ).on('click', function(event) {
-	event.preventDefault();
-      $.get('/api/quotes', function(event){
-        console.log(event);
+ event.preventDefault();
+
+$.get('/api/quotes',function(quotey){
+      console.log(quotey);
+      console.log('testing');
+
+      document.write("<h1>" + quotey.contents.quote + "</h1>");
+      document.write("<h2>" + quotey.contents.author + "</h2>");
+
+   //    function renderQuote(quote) {
+   //     console.log('rendering quote:', quote);
+
+   //     document.write("<h1>" + quote.contents.quote + "</h1>");
+   //     document.write("<h2>" + quote.contents.author + "</h2>");
+
+     
+
+   // }
+  
+ });  
+
+});
+
+
+
+//       $.get('/api/quotes', function(quote){
+//         console.log(quote);
   
         
-    var randomQuote  =
+//     var randomQuote  =
 
-    document.write("<h1>" + event.contents.quote + "</h1>");
-    document.write("<h2>" + event.contents.author + "</h2>");
+
     
-        $('#getRandom').append(randomQuote);
+//         $('#getRandom').append(randomQuote);
 
-      });
+//       });
 
  
-    });
+//     });
  
-}
+
 
 
 

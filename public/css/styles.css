@@ -27,3 +27,11 @@ h2 {
 }*/
 .btn-primary {
 	background-color: rgba(244, 138, 136, 1);
+	border: rgba(244, 138, 136, 1);
+
+}
+
+.btn-primary:hover {
+    background-color: rgba(244, 138, 136, 1);
+	border: rgba(244, 138, 136, 1);
+}

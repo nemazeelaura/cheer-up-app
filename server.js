@@ -1,7 +1,5 @@
 /*
 *** main configuration file for my Express app.  ***
-File: server.js where your node server startup code lives.
-NPM looks for a file named server.js (or app.js) when you start it.
 */
 //   If you don’t' give an extension node will resort to looking for your filename with either a .js, .json, or .node extension
 const express = require('express');
@@ -47,6 +45,14 @@ app.use(function (req, res, next) {
 	res.locals.currentUser = req.user;
 	next();
 });
+
+// api.post('api/quotes', function(req, res){
+//   let newQuote = new db.Quote ({
+//     quote: req.body.quote,
+//     author: req.body.author
+//   });
+// }
+
 
 let routes = require('./config/routes');// used in passport
 

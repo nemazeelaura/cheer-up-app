@@ -28,6 +28,7 @@ router.get('/api', function(req, res){
     ); 
 });
 
+
 router.route('/api/quotes')
   .get(quoteController.getQuotes)
 
