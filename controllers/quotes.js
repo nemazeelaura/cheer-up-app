@@ -3,7 +3,7 @@
 //Require request library
 const request = require('request');
 const keys = require('../env.js');
-const quotes = require('../models/quote');
+const Quote = require('../models/quote');
 
 
 
@@ -15,9 +15,116 @@ function getQuotes(req, res){
  });
 }
 
+// POST
+// function createQuote(req, res){
+
+//   let quoteNew = req.body.newQuote;
+//   var authorNew = req.body.newAuthor;
+
+//   let quote = Quote.create({quote: quoteNew, author: authorNew}, function(err, newQuote){
+//     if (err) res.json({
+//       message: 'Could not create quote: ' + err
+//     });
+//     res.redirect('/api/quotes');
+//   });
+// }
 
 
 
+
+
+module.exports= {
+
+	getQuotes: getQuotes
+	// createQuote: createQuote
+ // getImages: getImages
+}
+
+
+
+
+
+
+
+
+
+
+// // GET
+// function getQuoteId(req, res) {
+//   let id = req.params.id;
+//    Quote.findById({_id: id}, function(err, candy) {
+//     if(err) res.json({message: 'Could not find quote b/c:' + err});
+//     res.render('./api/quotes/edit', {quote: quote});
+//   });
+// }
+
+
+// function updateCandy(req, res) {
+//   var id = req.params.id;
+
+//   Candy.findById({_id: id}, function(err, candy) {
+//     if(err) res.json({message: 'Could not find candy b/c: ' + err});
+
+//     if(req.body.name) candy.name = req.body.name;
+//     if(req.body.color) candy.color = req.body.color;
+
+//     candy.save(function(err) {
+//       if(err) res.json({messsage: 'Could not update candy b/c: ' + err});
+
+//       res.redirect('/candies');
+//     });
+//   });
+// }
+
+// function removeCandy(req, res) {
+//   var id = req.params.id;
+
+//   Candy.remove({_id: id}, function(err) {
+//     if(err) res.json({message: 'Could not delete candy b/c: ' + err});
+
+//     res.redirect('/candies');
+//   });
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// old code -----------------------------------------
 // function getQuotes(req, res){
 //    request('http://quotes.rest/quote/random.json?api_key=' + keys.key, function (req, res, body) {
 //     // call back
@@ -93,11 +200,6 @@ function getQuotes(req, res){
 
 
 
-module.exports= {
-
-	getQuotes: getQuotes
-	// getImages: getImages
-}
 
 
 

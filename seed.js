@@ -13,6 +13,7 @@ let seedQuote = Quote.create({
 
    }, function(err, quote) {
 	   console.log(quote);
+	   process.exit();
    }
 
 );
