@@ -1,15 +1,18 @@
 
-body {
+body, html {
 	font-family: 'Open Sans', sans-serif;
-	margin: 20 auto;
-	background: url('/images/cheerup_logo.png') no-repeat center center fixed;
-	background-position: right 1px; 
+	height: 100%;
+}
+.bg {
+	background: url('/images/cheerup_logo.png');
+	height: 100%;
+	background-position: 0 25px; 
+	background-repeat: no-repeat: 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
-
 #quote {
 	font-size: 28px;
 	color: rgba(124, 121, 121, 1);

@@ -8,8 +8,7 @@ $(document).ready(function() {
       console.log('now for something completely different');
 
       function renderQuote(quote) {
-       console.log('rendering quote:', quote);
-
+       console.log('rendering quote:', quote);   
    }
   
  });  
@@ -30,16 +29,33 @@ $.get('/api/quotes').done(function(quotey){
      });
 
       $('#author').append( "~" + " " + quotey.contents.author);
-      $('body').css({
+      $('.bg').css({
        background: 'none'
      });
   
  });  
 
 });
+   
+//saves to favorites on submit
+
+// $(document).ready(function(){
 
 
+//   $("newQuoteSubmit").click(function(event){
+//     event.preventDefault();
 
+//     var data = {
+//       newQuoteText : $("#newQuoteText").val()
+//     }
+
+//     $.post("/api/quotes", data, function(){
+//       window.location.reload();
+//     });
+
+//   })
+
+// });
 
 
 

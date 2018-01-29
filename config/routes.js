@@ -30,7 +30,9 @@ router.get('/api', function(req, res){
 
 
 router.route('/api/quotes')
-  .get(quoteController.getQuotes)
+  .get(quoteController.getQuoteOfDay)
+  .post(quoteController.createQuoteOfDay)
+
 
 router.route('/')
   .get(usersController.home)

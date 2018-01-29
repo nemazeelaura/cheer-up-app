@@ -6,8 +6,8 @@ const keys = require('../env.js');
 const Quote = require('../models/quote');
 
 
-
-function getQuotes(req, res){
+// will get random quote of the day
+function getQuoteOfDay(req, res){
    request('http://quotes.rest/quote/random.json?api_key=' + keys.key, function (error, response, body) {
     // call back
     let info = JSON.parse(body);
@@ -15,37 +15,29 @@ function getQuotes(req, res){
  });
 }
 
-// POST
-// function createQuote(req, res){
+// POST to db 
+function createQuoteOfDay(req, res) {
+  let quoteNew = req.body.quote;
+  let authorNew = req.body.author;
+  console.log('quote from post' + quoteNew);
 
-//   let quoteNew = req.body.newQuote;
-//   var authorNew = req.body.newAuthor;
-
-//   let quote = Quote.create({quote: quoteNew, author: authorNew}, function(err, newQuote){
-//     if (err) res.json({
-//       message: 'Could not create quote: ' + err
-//     });
-//     res.redirect('/api/quotes');
-//   });
-// }
-
+  let quote = Quote.create({quote: quoteNew, author: authorNew}, function(err, newQuote) {
+    if (err) res.json({
+      message: 'Could not create quote: ' + err
+    });
+    res.redirect('/api');
+  });
+}
 
 
 
 
 module.exports= {
 
-	getQuotes: getQuotes
-	// createQuote: createQuote
+	getQuoteOfDay: getQuoteOfDay,
+	createQuoteOfDay: createQuoteOfDay
  // getImages: getImages
 }
-
-
-
-
-
-
-
 
 
 

@@ -1,7 +1,6 @@
 /*
 *** main configuration file for my Express app.  ***
 */
-//   If you don’t' give an extension node will resort to looking for your filename with either a .js, .json, or .node extension
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express(); // --- Create the express app
@@ -11,8 +10,7 @@ const flash = require('connect-flash');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-// connect to db modelsy                                                        
-// let db = require('./models');
+const methodOverride = require('method-override') // allows POST method to call PUT or DELETE from a form
 
 // mongoose.connect('mongodb://localhost/project2');
 
@@ -24,16 +22,13 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded( {extended: true } ));
 app.use(bodyParser.json());
 
-//found this on stack overflow was having trouble finding public directory
-// let path = require('path');
-// app.use(express.static(path.join(__dirname + '/public')));
 // Set the views folder and the view engine.
 // Tells Express to use the "ejs" templating engine.
 app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
-
+//used for passport 
 app.use(session({ secret: 'hey'}));
 app.use(passport.initialize());
 app.use(passport.session()); 
@@ -45,13 +40,6 @@ app.use(function (req, res, next) {
 	res.locals.currentUser = req.user;
 	next();
 });
-
-// api.post('api/quotes', function(req, res){
-//   let newQuote = new db.Quote ({
-//     quote: req.body.quote,
-//     author: req.body.author
-//   });
-// }
 
 
 let routes = require('./config/routes');// used in passport
