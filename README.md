@@ -4,7 +4,7 @@ git hub link
 https://github.com/nemazeelaura/cheer-up-app
 
 link to Wireframe
-https://github.com/nemazeelaura/project/blob/master/cheerUpwireframe.png
+https://github.com/nemazeelaura/cheer-up-app/blob/master/cheerUpwireframe.png
 
 Screen Shot 2018-01-10 at 12.23.10 PM.png
 
