@@ -9,10 +9,8 @@ $(document).ready(function() {
 
       function renderQuote(quote) {
        console.log('rendering quote:', quote);   
-   }
-  
+   }  
  });  
-
 });
 
 $( "#getRandom" ).on('click', function(event) {
@@ -32,34 +30,39 @@ $.get('/api/quotes').done(function(quotey){
       $('.bg').css({
        background: 'none'
      });
-  
- });  
-
+      
+  });  
 });
    
-//saves to favorites on submit
+//saves quote on submit
 
-// $(document).ready(function(){
-
-
-//   $("newQuoteSubmit").click(function(event){
-//     event.preventDefault();
-
-//     var data = {
-//       newQuoteText : $("#newQuoteText").val()
-//     }
-
-//     $.post("/api/quotes", data, function(){
-//       window.location.reload();
-//     });
-
-//   })
-
-// });
+$(document).ready(function(){
 
 
+  $("#updateQuote").click(function(event) {
+    event.preventDefault();
+
+    var data = {
+      newQuoteText : $("#newQuoteText").val()
+    };
+    // console.log(data.newQuoteText);
+
+    $.post("/api/quotes/", data, function() {
+      console.log(data);
 
 
+      // $('#quote').append(data);
+      // $('#quote').css({
+      //  margin: '100 auto'
+     // });
+
+      // return res.redirect('/');
+      window.location.reload();  
+    });
+
+  });
+
+});
 
 
 
@@ -79,24 +82,17 @@ $.get('/api/quotes').done(function(quotey){
 
    //     document.write("<h1>" + quote.contents.quote + "</h1>");
    //     document.write("<h2>" + quote.contents.author + "</h2>");
-
-     
-
    // }
 
 //       $.get('/api/quotes', function(quote){
 //         console.log(quote);
-  
-        
+       
 //     var randomQuote  =
-
-
     
 //         $('#getRandom').append(randomQuote);
 
 //       });
 
- 
 //     });
  
 // <!--       <script type="text/javascript">

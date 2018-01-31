@@ -33,7 +33,7 @@ function createQuoteOfDay(req, res) {
 // GET
 // function getQuoteId(req, res) {
 //   let id = req.params.id;
-//    Quote.findById({_id: id}, function(err, candy) {
+//    Quote.findById({_id: id}, function(err, quote) {
 //     if(err) res.json({message: 'Could not find quote b/c:' + err});
 //     res.render('/api/quotes/edit', {quote: quote});
 //   });
@@ -42,8 +42,8 @@ function createQuoteOfDay(req, res) {
 // function updateQuote(req, res) {
 //   var id = req.params.id;
 
-//   Quote.findById({_id: id}, function(err, candy) {
-//     if(err) res.json({message: 'Could not find quote b/c: ' + err});
+//   Quote.findById({_id: id}, function(err, quote) {
+//     if(err) res.json({message: 'Could not find quotes b/c: ' + err});
 
 //     if(req.body.quote) quote.quote = req.body.quote;
 //     if(req.body.author) author.author = req.body.author;

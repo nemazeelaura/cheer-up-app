@@ -32,6 +32,13 @@ router.route('/api/quotes')
   .get(quoteController.getQuoteOfDay)
   .post(quoteController.createQuoteOfDay)
 
+//   router.post('/api/quotes', function(req, res){
+//     var savedQuote = res.body;
+//     console.log(savedQuote);
+// });   
+  
+
+
 
 // router.route('/api/quotes/edit')
 //   .get(quoteController.getById)
