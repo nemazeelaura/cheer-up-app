@@ -47,6 +47,7 @@ var LocalStrategy   = require('passport-local').Strategy;
   }, function(req, email, password, callback) {
     // Search for a user with this email
     User.findOne({ 'local.email' :  email }, function(err, user) {
+
       if (err) {
         return callback(err);
       }

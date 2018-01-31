@@ -17,6 +17,7 @@ function getQuoteOfDay(req, res){
 
 // POST to db 
 function createQuoteOfDay(req, res) {
+  console.log('hit create quote route');
   let quoteNew = req.body.quote;
   let authorNew = req.body.author;
   console.log('quote from post' + quoteNew);
@@ -25,58 +26,64 @@ function createQuoteOfDay(req, res) {
     if (err) res.json({
       message: 'Could not create quote: ' + err
     });
-    res.redirect('/api');
+    res.redirect('/api/quotes');
   });
 }
 
+// GET
+// function getQuoteId(req, res) {
+//   let id = req.params.id;
+//    Quote.findById({_id: id}, function(err, candy) {
+//     if(err) res.json({message: 'Could not find quote b/c:' + err});
+//     res.render('/api/quotes/edit', {quote: quote});
+//   });
+// }
 
+// function updateQuote(req, res) {
+//   var id = req.params.id;
 
+//   Quote.findById({_id: id}, function(err, candy) {
+//     if(err) res.json({message: 'Could not find quote b/c: ' + err});
+
+//     if(req.body.quote) quote.quote = req.body.quote;
+//     if(req.body.author) author.author = req.body.author;
+
+//     candy.save(function(err) {
+//       if(err) res.json({messsage: 'Could not update quote b/c: ' + err});
+
+//       res.redirect('/api/quotes');
+//     });
+//   });
+// }
+
+// function removeQuote(req, res) {
+//   var id = req.params.id;
+
+//   Quote.remove({_id: id}, function(err) {
+//     if(err) res.json({message: 'Could not delete quote b/c: ' + err});
+
+//     res.redirect('/api/quotes');
+//   });
+// }
 
 module.exports= {
 
 	getQuoteOfDay: getQuoteOfDay,
-	createQuoteOfDay: createQuoteOfDay
+	createQuoteOfDay: createQuoteOfDay,
+  // getQuoteId: getQuoteId,
+  // updateQuote: updateQuote,
+  // removeQuote: removeQuote
  // getImages: getImages
 }
 
 
 
-// // GET
-// function getQuoteId(req, res) {
-//   let id = req.params.id;
-//    Quote.findById({_id: id}, function(err, candy) {
-//     if(err) res.json({message: 'Could not find quote b/c:' + err});
-//     res.render('./api/quotes/edit', {quote: quote});
-//   });
-// }
 
 
-// function updateCandy(req, res) {
-//   var id = req.params.id;
 
-//   Candy.findById({_id: id}, function(err, candy) {
-//     if(err) res.json({message: 'Could not find candy b/c: ' + err});
 
-//     if(req.body.name) candy.name = req.body.name;
-//     if(req.body.color) candy.color = req.body.color;
 
-//     candy.save(function(err) {
-//       if(err) res.json({messsage: 'Could not update candy b/c: ' + err});
 
-//       res.redirect('/candies');
-//     });
-//   });
-// }
-
-// function removeCandy(req, res) {
-//   var id = req.params.id;
-
-//   Candy.remove({_id: id}, function(err) {
-//     if(err) res.json({message: 'Could not delete candy b/c: ' + err});
-
-//     res.redirect('/candies');
-//   });
-// }
 
 
 

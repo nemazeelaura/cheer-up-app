@@ -10,7 +10,7 @@ const flash = require('connect-flash');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const methodOverride = require('method-override') // allows POST method to call PUT or DELETE from a form
+const methodOverride = require('method-override'); // allows POST method to call PUT or DELETE from a form
 
 // mongoose.connect('mongodb://localhost/project2');
 

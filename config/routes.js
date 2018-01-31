@@ -28,10 +28,13 @@ router.get('/api', function(req, res){
     ); 
 });
 
-
 router.route('/api/quotes')
   .get(quoteController.getQuoteOfDay)
   .post(quoteController.createQuoteOfDay)
+
+
+// router.route('/api/quotes/edit')
+//   .get(quoteController.getById)
 
 
 router.route('/')
