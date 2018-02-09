@@ -32,16 +32,11 @@ router.route('/api/quotes')
   .get(quoteController.getQuoteOfDay)
   .post(quoteController.createQuoteOfDay)
 
-//   router.post('/api/quotes', function(req, res){
-//     var savedQuote = res.body;
-//     console.log(savedQuote);
-// });   
-  
+router.route('/api/quotes/:id').delete(quoteController.deleteQuote)   
+
+// router.route('/api/quotes/edit').save(quoteController.getQuoteId)
 
 
-
-// router.route('/api/quotes/edit')
-//   .get(quoteController.getById)
 
 
 router.route('/')
@@ -65,18 +60,3 @@ router.route('/user')
 
 
 module.exports = router;
-
-
-
-
-
-
-// i found this on stack overflow.. path.resolve was getting an error about my path
-// let path = require('path');
-// router.get('/', function(req, res){
-//   res.sendFile(path.resolve('views/index.ejs'));
-// });
-// var path = require('path');
-// router.get('/', function(req, res){
-//   res.sendFile('../views/index.ejs');
-// });

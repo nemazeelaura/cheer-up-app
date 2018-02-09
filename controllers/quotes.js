@@ -17,8 +17,8 @@ function getQuoteOfDay(req, res){
 
 // POST to db 
 function createQuoteOfDay(req, res) {
-  console.log('hit create quote route');
-  let quoteNew = req.body.quote;
+  // console.log(req.body);
+  let quoteNew = req.body.newQuoteText;
   let authorNew = req.body.author;
   console.log('quote from post' + quoteNew);
 
@@ -30,14 +30,16 @@ function createQuoteOfDay(req, res) {
   });
 }
 
+
+
 // GET
-// function getQuoteId(req, res) {
-//   let id = req.params.id;
-//    Quote.findById({_id: id}, function(err, quote) {
-//     if(err) res.json({message: 'Could not find quote b/c:' + err});
-//     res.render('/api/quotes/edit', {quote: quote});
-//   });
-// }
+function getQuoteId(req, res) {
+  let id = req.params.id;
+   Quote.findById({_id: id}, function(err, quote) {
+    if(err) res.json({message: 'Could not find quote b/c:' + err});
+    res.render('/api/quotes/edit', {quote: quote});
+  });
+}
 
 // function updateQuote(req, res) {
 //   var id = req.params.id;
@@ -56,15 +58,17 @@ function createQuoteOfDay(req, res) {
 //   });
 // }
 
-// function removeQuote(req, res) {
-//   var id = req.params.id;
+function deleteQuote(req, res) {
+  var id = req.params.id;
+  console.log(id);
 
-//   Quote.remove({_id: id}, function(err) {
-//     if(err) res.json({message: 'Could not delete quote b/c: ' + err});
+  Quote.remove({_id: id}, function(err) {
+    if(err) res.json({message: 'Could not delete quote b/c: ' + err});
+     res.json('quote deleted');
 
-//     res.redirect('/api/quotes');
-//   });
-// }
+    // res.redirect('/api/quotes');
+  });
+}
 
 module.exports= {
 
@@ -72,7 +76,7 @@ module.exports= {
 	createQuoteOfDay: createQuoteOfDay,
   // getQuoteId: getQuoteId,
   // updateQuote: updateQuote,
-  // removeQuote: removeQuote
+  deleteQuote: deleteQuote
  // getImages: getImages
 }
 

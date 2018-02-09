@@ -24,6 +24,13 @@ body, html {
 	font-style: italic; 
 	margin-top: 0;
 }
+#quotes {
+	font-size: 28px;
+	color: rgba(124, 121, 121, 1);
+	background-color: rgba(244, 138, 136, 1);
+	
+}
+
 /*.jumbotron-fluid {
 	background: url('/images/cheerup_logo.png') no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -44,12 +51,30 @@ body, html {
 
 h3 {
 	font-size: 20px;
-	color: rgba(75, 72, 72, .95);
+	color: rgba(119, 119, 119, 1);
 	margin: 5 auto;
 	padding-left: 20px; 
 }
 
 #update {
 	background-color: rgba(124, 121, 121, .95);
+	border: none;
+}
+input#newQuoteText.form-control {
+	background-color: white;
+	border-color: rgba(204, 204, 204, 1);
+	color: rgba(204, 204, 204, 1);
+}
+
+input#updateQuote.btn.btn-info.col-md-12 {
+	background-color: rgba(155, 210, 198, .9);
+	border-color: rgba(155, 210, 198, 1);
+}
+input#deleteTheQuote.btn.btn-info.col-md-12 {
+	background-color: rgba(155, 210, 198, .9);
+	border-color: rgba(155, 210, 198, 1);
+}
+input.btn.btn-info.col-md-12:hover {
+	background-color: rgba(137, 179, 170, 1);
 	border: none;
 }

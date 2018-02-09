@@ -11,7 +11,8 @@ Screen Shot 2018-01-10 at 12.23.10 PM.png
 Trello: User Stories
 https://trello.com/b/3QHR67Ai/cheerup-app
 
-********************CheerUp App*********************
+CheerUp App
+-----------------------------------------------------------------------------------------------
 For project two I am creating an app that lets people bring a little happy into other people's 
 lives by thinking of them and sending them an inspiring, 
 cheerful or profund quote with this cheerUp App. This came from an idea mentioned in the project 

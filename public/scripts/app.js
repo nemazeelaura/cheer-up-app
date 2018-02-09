@@ -3,15 +3,58 @@ $(document).ready(function() {
 	console.log('front end working');
 
 
+
+
   $.get('/api',function(quotey){
       console.log(quotey);
       console.log('now for something completely different');
-
-      function renderQuote(quote) {
-       console.log('rendering quote:', quote);   
-   }  
- });  
+      $('#quotes').html('');
+     for (i = 0; i < quotey.length; i++) {
+ 
+     // console.log(quotey[i]); 
+      let quoteId = (quotey[i]._id);
+      console.log(quoteId);     
+      let test = $('<div>').html(quotey[i].quote).attr('id', quoteId).click(function() {
+         deleteQuote(quoteId);
+      });
+      console.log(test[0]);
+      $('#quotes').append(test[0]);  
+     }
+   });  
 });
+
+
+   let deleteQuote = function(id) {  //get quote by id and delete the quote
+          console.log(id);
+
+          $.ajax({
+            url: '/api/quotes/' + id,
+            type: 'DELETE',
+            success: function(result) {
+            console.log(result);
+            
+            $.get('/api',function(quotey){
+            console.log(quotey);
+            console.log('now for something completely different');
+            $('#quotes').html('');
+           for (i = 0; i < quotey.length; i++) {
+       
+               // console.log(quotey[i]); 
+                let quoteId = (quotey[i]._id);
+                console.log(quoteId);     
+                let test = $('<div>').html(quotey[i].quote).attr('id', quoteId).click(function() {
+                   deleteQuote(quoteId);
+                });
+                console.log(test[0]);
+                $('#quotes').append(test[0]);  
+               }
+            }); 
+
+          }
+      });
+   };
+
+
 
 $( "#getRandom" ).on('click', function(event) {
  event.preventDefault();
