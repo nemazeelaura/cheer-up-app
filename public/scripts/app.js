@@ -2,10 +2,41 @@
 $(document).ready(function() {
 	console.log('front end working');
 
+ $( "#getRandom" ).on('click', function(event) {
+   event.preventDefault();
+
+  $.get('/api/quotes').done(function(quotey){
+      console.log(quotey);
+      console.log('testing');
 
 
+      $('#quote').append(quotey.contents.quote);
+      $('#quote').css({
+       margin: '100 auto'
+     });
 
-  $.get('/api',function(quotey){
+      $('#author').append( "~" + " " + quotey.contents.author);
+      $('.bg').css({
+       background: 'none'
+     });
+      
+  });  
+});
+
+
+//get all quotes
+let getAllQuotes = function loaddata() {
+ $.get('/api',function(quotey){
+      console.log(quotey);
+      console.log('now for something completely different');
+       $('#quotes').append(quotey);  
+});
+
+};
+
+ 
+
+ $.get('/api',function(quotey){
       console.log(quotey);
       console.log('now for something completely different');
       $('#quotes').html('');
@@ -19,9 +50,10 @@ $(document).ready(function() {
       });
       console.log(test[0]);
       $('#quotes').append(test[0]);  
+
      }
    });  
-});
+
 
 
    let deleteQuote = function(id) {  //get quote by id and delete the quote
@@ -46,7 +78,7 @@ $(document).ready(function() {
                    deleteQuote(quoteId);
                 });
                 console.log(test[0]);
-                $('#quotes').append(test[0]);  
+                $('#quotes').append(test[0]);
                }
             }); 
 
@@ -55,27 +87,6 @@ $(document).ready(function() {
    };
 
 
-
-$( "#getRandom" ).on('click', function(event) {
- event.preventDefault();
-
-$.get('/api/quotes').done(function(quotey){
-      console.log(quotey);
-      console.log('testing');
-
-
-      $('#quote').append(quotey.contents.quote);
-      $('#quote').css({
-       margin: '100 auto'
-     });
-
-      $('#author').append( "~" + " " + quotey.contents.author);
-      $('.bg').css({
-       background: 'none'
-     });
-      
-  });  
-});
    
 //saves quote on submit
 
@@ -87,18 +98,13 @@ $(document).ready(function(){
 
     var data = {
       newQuoteText : $("#newQuoteText").val()
+
     };
     // console.log(data.newQuoteText);
 
     $.post("/api/quotes/", data, function() {
-      console.log(data);
-
 
       // $('#quote').append(data);
-      // $('#quote').css({
-      //  margin: '100 auto'
-     // });
-
       // return res.redirect('/');
       window.location.reload();  
     });
@@ -109,7 +115,7 @@ $(document).ready(function(){
 
 
 
-
+}); //end document ready
 
 
 

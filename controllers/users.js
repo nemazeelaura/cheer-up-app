@@ -46,6 +46,7 @@ function getLogout(request, response, next) {
 
 // Restricted page
 function userProfile(request, response, next){
+  response.render('secret.ejs');
   response.json({secret: "Woooah secret!"});
 }
 // GET homepage/

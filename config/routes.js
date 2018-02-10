@@ -34,7 +34,8 @@ router.route('/api/quotes')
 
 router.route('/api/quotes/:id').delete(quoteController.deleteQuote)   
 
-// router.route('/api/quotes/edit').save(quoteController.getQuoteId)
+router.route('/api/quotes/edit')
+  .put(quoteController.updateQuote);
 
 
 

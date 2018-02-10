@@ -1,4 +1,6 @@
-
+nav.navbar navebar-default {
+	width: 100%;
+}
 body, html {
 	font-family: 'Open Sans', sans-serif;
 	height: 100%;
@@ -27,7 +29,9 @@ body, html {
 #quotes {
 	font-size: 28px;
 	color: rgba(124, 121, 121, 1);
-	background-color: rgba(244, 138, 136, 1);
+/*	background-color: rgba(244, 138, 136, .25);
+	border-radius: 5px;
+	padding: 20px;*/
 	
 }
 
@@ -51,6 +55,13 @@ body, html {
 
 h3 {
 	font-size: 20px;
+	color: rgba(119, 119, 119, 1);
+	margin: 5 auto;
+	padding-left: 20px; 
+}
+
+h2 {
+	font-size: 24px;
 	color: rgba(119, 119, 119, 1);
 	margin: 5 auto;
 	padding-left: 20px; 

@@ -23,6 +23,7 @@ function createQuoteOfDay(req, res) {
   console.log('quote from post' + quoteNew);
 
   let quote = Quote.create({quote: quoteNew, author: authorNew}, function(err, newQuote) {
+
     if (err) res.json({
       message: 'Could not create quote: ' + err
     });
@@ -33,33 +34,22 @@ function createQuoteOfDay(req, res) {
 
 
 // GET
-function getQuoteId(req, res) {
+function updateQuote(req, res) {
   let id = req.params.id;
    Quote.findById({_id: id}, function(err, quote) {
     if(err) res.json({message: 'Could not find quote b/c:' + err});
-    res.render('/api/quotes/edit', {quote: quote});
+    if(req.body.quote) quote.quote=req.body.quote;
+
+    quote.save(function(err){
+      res.json({messsage: 'Could not update quote b/c: ' + err});
+    });
+     res.redirect('/api/quotes/edit', {quote: quote});
   });
 }
 
-// function updateQuote(req, res) {
-//   var id = req.params.id;
-
-//   Quote.findById({_id: id}, function(err, quote) {
-//     if(err) res.json({message: 'Could not find quotes b/c: ' + err});
-
-//     if(req.body.quote) quote.quote = req.body.quote;
-//     if(req.body.author) author.author = req.body.author;
-
-//     candy.save(function(err) {
-//       if(err) res.json({messsage: 'Could not update quote b/c: ' + err});
-
-//       res.redirect('/api/quotes');
-//     });
-//   });
-// }
 
 function deleteQuote(req, res) {
-  var id = req.params.id;
+  let id = req.params.id;
   console.log(id);
 
   Quote.remove({_id: id}, function(err) {
@@ -75,7 +65,7 @@ module.exports= {
 	getQuoteOfDay: getQuoteOfDay,
 	createQuoteOfDay: createQuoteOfDay,
   // getQuoteId: getQuoteId,
-  // updateQuote: updateQuote,
+  updateQuote: updateQuote,
   deleteQuote: deleteQuote
  // getImages: getImages
 }
