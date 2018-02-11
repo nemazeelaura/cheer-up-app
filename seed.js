@@ -5,7 +5,7 @@ const mongoose =require('mongoose');
 //                   process.env.MONGOHQ_URL ||
 //                   “mongodb://localhost/project2”);
 
-mongoose.connect('mongodb://localhost/project2');
+mongoose.connect( process.env.MONGOD_URI || 'mongodb://localhost/project2');
 
 let seedQuote = Quote.create({
     quote: 'Change the world by being yourself',

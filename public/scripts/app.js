@@ -125,11 +125,11 @@ $(document).ready(function(){
 
     $.post("/api/quotes/", data, function() {
 
-      $('#newQuoteText').append( " " + data + " ");
-      $('.bg').css({
-       background: 'none'
+     //  $('#newQuoteText').append( " " + data + " ");
+     //  $('.bg').css({
+     //   background: 'none'
 
-     });
+     // });
 
       // $('#quote').append(data);
       // return res.redirect('/');
