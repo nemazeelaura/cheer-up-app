@@ -27,7 +27,17 @@ function createQuoteOfDay(req, res) {
     if (err) res.json({
       message: 'Could not create quote: ' + err
     });
+    console.log('quote saved to database');
     res.redirect('/api/quotes');
+  });
+}
+
+// GET by Id
+function getQuoteId(req, res) {
+  let id = req.params.id;
+   Quote.findById({_id: id}, function(err, quote) {
+    if(err) res.json({message: 'Could not find quote b/c:' + err});
+    res.render('/api/quotes/edit', {quote: quote});
   });
 }
 
@@ -41,9 +51,10 @@ function updateQuote(req, res) {
     if(req.body.quote) quote.quote=req.body.quote;
 
     quote.save(function(err){
-      res.json({messsage: 'Could not update quote b/c: ' + err});
+      if (err) res.json({messsage: 'Could not update quote b/c: ' + err});
+
+      res.redirect('/api');
     });
-     res.redirect('/api/quotes/edit', {quote: quote});
   });
 }
 
@@ -64,7 +75,8 @@ module.exports= {
 
 	getQuoteOfDay: getQuoteOfDay,
 	createQuoteOfDay: createQuoteOfDay,
-  // getQuoteId: getQuoteId,
+  getQuoteId: getQuoteId,
+  // findAllQuotes: findAllQuotes,
   updateQuote: updateQuote,
   deleteQuote: deleteQuote
  // getImages: getImages
@@ -74,6 +86,34 @@ module.exports= {
 
 
 
+
+
+// function findAllQuotes(req, res) {
+//   // console.log(req.body);
+//   //find and retrieve all quotes from database
+//   let all = Quote.find(function(err, quotes) {
+//     if(err) {
+//         res.status(500).send({message: 'error occured while retrieving quotes'});
+//     } else {
+//         console.log(all.quotes);
+//         res.send(all.quotes); 
+//     }
+//   });
+//  }
+
+// function findOneQuote(req, res) {
+//   // console.log(req.body);
+//   //find and retrieve all quotes from database
+//    let id = req.params.id;
+//    Quote.findById({_id: id}, function(err, quote) {
+//     if(err) {
+//         res.status(500).send({message: 'could not retrive with id' + id.quote});
+//     } else {
+//         console.log(id.quote);
+//         res.send(id.quote); 
+//     }
+//   });
+//  }
 
 
 

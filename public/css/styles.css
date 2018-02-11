@@ -1,19 +1,24 @@
-nav.navbar navebar-default {
+nav.navbar navbar-default {
 	width: 100%;
 }
+
 body, html {
 	font-family: 'Open Sans', sans-serif;
 	height: 100%;
 }
+
 .bg {
 	background: url('/images/cheerup_logo.png');
 	height: 100%;
-	background-position: 0 25px; 
-	background-repeat: no-repeat: 
+	background-position: 0 50px; 
+	background-repeat: no-repeat; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+.enroll {
+	padding-left: 0;
 }
 #quote {
 	font-size: 28px;
@@ -29,11 +34,17 @@ body, html {
 #quotes {
 	font-size: 28px;
 	color: rgba(124, 121, 121, 1);
-/*	background-color: rgba(244, 138, 136, .25);
-	border-radius: 5px;
-	padding: 20px;*/
-	
+	border-radius: 10px;
+	padding: 20px;
+	margin: 5px;
+/*    background-color: rgba(230, 251, 246, 1);*/	/*// background color for saved quotes*/
 }
+
+.alert-danger {
+	background: none;
+	border: none;
+}
+
 
 /*.jumbotron-fluid {
 	background: url('/images/cheerup_logo.png') no-repeat center center fixed; 
@@ -45,7 +56,7 @@ body, html {
 .btn-primary {
 	background-color: rgba(244, 138, 136, 1);
 	border: rgba(244, 138, 136, 1);
-
+	margin-left: 16px;
 }
 
 .btn-primary:hover, .btn-primary:focus {

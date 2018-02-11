@@ -18,21 +18,22 @@ $(document).ready(function() {
       $('#author').append( "~" + " " + quotey.contents.author);
       $('.bg').css({
        background: 'none'
+
      });
       
   });  
 });
 
 
-//get all quotes
-let getAllQuotes = function loaddata() {
- $.get('/api',function(quotey){
-      console.log(quotey);
-      console.log('now for something completely different');
-       $('#quotes').append(quotey);  
-});
+// //get all quotes
+// let getAllQuotes = function loaddata() {
+//  $.get('/api',function(quotey){
+//       console.log(quotey);
+//       console.log('now for something completely different');
+//        $('#quotes').append(quotey);  
+// });
 
-};
+// };
 
  
 
@@ -50,6 +51,11 @@ let getAllQuotes = function loaddata() {
       });
       console.log(test[0]);
       $('#quotes').append(test[0]);  
+      
+      $('#quotes').css({
+       background: 'rgba(230, 251, 246, 1)'
+      });
+  
 
      }
    });  
@@ -86,7 +92,19 @@ let getAllQuotes = function loaddata() {
       });
    };
 
+ //  let updateQuote = document.getElementById('updateQuote')
 
+ //       update.addEventListener('click', function (){
+ //        fetch('quotes/edit', {
+ //        method: 'put',
+ //        headers: {'Content-Type': 'application/json'},
+ //        body: JSON.strigify({
+ //        'quote': 'quote'
+ //      })
+ //    });
+ // });
+
+  
    
 //saves quote on submit
 
@@ -96,17 +114,31 @@ $(document).ready(function(){
   $("#updateQuote").click(function(event) {
     event.preventDefault();
 
+    
     var data = {
-      newQuoteText : $("#newQuoteText").val()
+      newQuoteText: $("#newQuoteText").val()
 
     };
+
+
     // console.log(data.newQuoteText);
 
     $.post("/api/quotes/", data, function() {
 
+      $('#newQuoteText').append( " " + data + " ");
+      $('.bg').css({
+       background: 'none'
+
+     });
+
       // $('#quote').append(data);
       // return res.redirect('/');
-      window.location.reload();  
+      window.location.reload(); 
+      $('#quotes').html('');
+       $('.bg').css({
+       background: 'none'
+       }); 
+ 
     });
 
   });

@@ -28,17 +28,23 @@ router.get('/api', function(req, res){
     ); 
 });
 
+
 router.route('/api/quotes')
   .get(quoteController.getQuoteOfDay)
+  // .get(quoteController.getAllQuotes)
   .post(quoteController.createQuoteOfDay)
-
+// return specific quote
+router.route('/api/quotes/:id', quoteController.getQuoteId)   
+//delete
 router.route('/api/quotes/:id').delete(quoteController.deleteQuote)   
 
-router.route('/api/quotes/edit')
-  .put(quoteController.updateQuote);
+// update
+router.route('/api/quotes/:id').patch(quoteController.updateQuote)
 
-
-
+// router.route('/api/quotes/:id')
+//    .get(quoteController.findOneQuote)   
+//    .get(quoteController.updateQuote)   
+//    .put(quoteController.updateQuote)   
 
 router.route('/')
   .get(usersController.home)
