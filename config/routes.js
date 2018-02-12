@@ -20,6 +20,7 @@ function authenticatedUser(req, res, next) {
   res.redirect('/');
 }
 
+// get all quotes from database
 router.get('/api', function(req, res){
       db.Quote.find({}, function(err, quote){
         console.log(quote);
@@ -28,42 +29,40 @@ router.get('/api', function(req, res){
     ); 
 });
 
-
+// route to get and post quote
 router.route('/api/quotes')
   .get(quoteController.getQuoteOfDay)
-  // .get(quoteController.getAllQuotes)
   .post(quoteController.createQuoteOfDay)
-// return specific quote
+
+// route to return specific quote
 router.route('/api/quotes/:id', quoteController.getQuoteId)   
-//delete
+
+// delete quote by id route
 router.route('/api/quotes/:id').delete(quoteController.deleteQuote)   
 
-// update
+// update quote by id route
 router.route('/api/quotes/:id').patch(quoteController.updateQuote)
-
-// router.route('/api/quotes/:id')
-//    .get(quoteController.findOneQuote)   
-//    .get(quoteController.updateQuote)   
-//    .put(quoteController.updateQuote)   
 
 router.route('/')
   .get(usersController.home)
 
-
+// route for signup
 router.route('/signup')
   .get(usersController.getSignup)
   .post(usersController.postSignup)
 
+// route for login
 router.route('/login')
   .get(usersController.getLogin)
   .post(usersController.postLogin)
 
+// route for logout
 router.route('/logout')
   .get(usersController.getLogout)
 
+// route for user
 router.route('/user')
   .get(authenticatedUser, usersController.userProfile)
-
 
 
 module.exports = router;

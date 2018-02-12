@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-
+//quote model
 const Quote = mongoose.Schema({
 	quote: String,
 	author: String

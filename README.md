@@ -1,10 +1,13 @@
 # cheer-up-app
 
-git hub link
+git hub Link
 https://github.com/nemazeelaura/cheer-up-app
 
 link to Wireframe
 https://github.com/nemazeelaura/cheer-up-app/blob/master/cheerUpwireframe.png
+
+link to Heroku
+https://shrouded-inlet-70949.herokuapp.com/
 
 Screen Shot 2018-01-10 at 12.23.10 PM.png
 

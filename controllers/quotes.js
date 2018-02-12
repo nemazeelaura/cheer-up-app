@@ -6,10 +6,9 @@ const keys = require('../env.js');
 const Quote = require('../models/quote');
 
 
-// will get random quote of the day
+// Get random quote of the day
 function getQuoteOfDay(req, res){
    request('http://quotes.rest/quote/random.json?api_key=' + keys.key, function (error, response, body) {
-    // call back
     let info = JSON.parse(body);
     res.send(info);
  });
@@ -17,7 +16,6 @@ function getQuoteOfDay(req, res){
 
 // POST to db 
 function createQuoteOfDay(req, res) {
-  // console.log(req.body);
   let quoteNew = req.body.newQuoteText;
   let authorNew = req.body.author;
   console.log('quote from post' + quoteNew);
@@ -32,7 +30,7 @@ function createQuoteOfDay(req, res) {
   });
 }
 
-// GET by Id
+// GET quote by id
 function getQuoteId(req, res) {
   let id = req.params.id;
    Quote.findById({_id: id}, function(err, quote) {
@@ -41,9 +39,7 @@ function getQuoteId(req, res) {
   });
 }
 
-
-
-// GET
+// GET quote by id and update
 function updateQuote(req, res) {
   let id = req.params.id;
    Quote.findById({_id: id}, function(err, quote) {
@@ -58,7 +54,7 @@ function updateQuote(req, res) {
   });
 }
 
-
+// Delete the quote by id
 function deleteQuote(req, res) {
   let id = req.params.id;
   console.log(id);
@@ -66,7 +62,6 @@ function deleteQuote(req, res) {
   Quote.remove({_id: id}, function(err) {
     if(err) res.json({message: 'Could not delete quote b/c: ' + err});
      res.json('quote deleted');
-
     // res.redirect('/api/quotes');
   });
 }
@@ -76,44 +71,14 @@ module.exports= {
 	getQuoteOfDay: getQuoteOfDay,
 	createQuoteOfDay: createQuoteOfDay,
   getQuoteId: getQuoteId,
-  // findAllQuotes: findAllQuotes,
   updateQuote: updateQuote,
   deleteQuote: deleteQuote
- // getImages: getImages
 }
 
 
 
 
 
-
-
-// function findAllQuotes(req, res) {
-//   // console.log(req.body);
-//   //find and retrieve all quotes from database
-//   let all = Quote.find(function(err, quotes) {
-//     if(err) {
-//         res.status(500).send({message: 'error occured while retrieving quotes'});
-//     } else {
-//         console.log(all.quotes);
-//         res.send(all.quotes); 
-//     }
-//   });
-//  }
-
-// function findOneQuote(req, res) {
-//   // console.log(req.body);
-//   //find and retrieve all quotes from database
-//    let id = req.params.id;
-//    Quote.findById({_id: id}, function(err, quote) {
-//     if(err) {
-//         res.status(500).send({message: 'could not retrive with id' + id.quote});
-//     } else {
-//         console.log(id.quote);
-//         res.send(id.quote); 
-//     }
-//   });
-//  }
 
 
 

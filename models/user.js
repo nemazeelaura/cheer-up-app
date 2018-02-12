@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
-// const db = require('mongodb').MongoClient;
 
-// mongoose.connect('mongodb://localhost/project2');// MongoDB, by default, runs on port 27017
-
-
+//user model
 let User = mongoose.Schema ({
     local: {
       email : String,

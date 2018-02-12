@@ -39,10 +39,6 @@ function getLogout(request, response, next) {
 	request.logout();
   response.redirect('/');
 }
-// // Restricted page
-// function secret(request, response, next){
-//   response.render('secret.ejs');
-// }
 
 // Restricted page
 function userProfile(request, response, next){
