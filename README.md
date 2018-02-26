@@ -18,8 +18,8 @@ CheerUp App
 -----------------------------------------------------------------------------------------------
 For project two I am creating an app that lets people bring a little happy into other people's 
 lives by thinking of them and sending them an inspiring, 
-cheerful or profund quote with this cheerUp App. This came from an idea mentioned in the project 
-two guidlines. I always save good quotes that I hear and 
+cheerful or profound quote with this cheerUp App. This came from an idea mentioned in the project 
+two guidelines. I always save good quotes that I hear and 
 have been know to send my friends inspiring quotes especially if I know they're going through a 
 tough time/ and also for no reason at all!
 
